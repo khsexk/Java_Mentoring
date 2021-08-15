@@ -8,9 +8,9 @@
 <p data-ke-size="size16">&nbsp;바로 예제를 보면서 이해해보자.</p>
 <pre id="code_1629039557147" class="java" data-ke-language="java" data-ke-type="codeblock"><code>int[] arr = new int[5];
 Arrays.setAll(arr, (i) -&gt; (int)(Math.random()*5+1);
-
+&nbsp;
 int method(){
-	return (int)(Math.random()*5) + 1;
+&nbsp;	return (int)(Math.random()*5) + 1;
 }</code></pre>
 <p data-ke-size="size16">&nbsp;위의 코드에서 ' ( ) -&gt; (int)(Math.random()*5+1 '이 람다식이다. 이 람식은 method( )를 간결하게 표현한 것이다. 코드를 봤을 때 당연히 람다식이 더 이해하기 쉬울 것이다. 또 메서드로 표현하려면 클래스를 만들어야 하고, 호출하려면 객체까지 생성해야 한다. 하지만 람다식을 사용한다면 이 과정들을 거치지 않아도 된다. 또 람다식은 메서드의 매개변수로도 전달 가능하고, 메서드의 결과로 반환될 수도 있다.</p>
 <p data-ke-size="size16">&nbsp;</p>

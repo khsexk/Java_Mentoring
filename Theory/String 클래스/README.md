@@ -1,3 +1,5 @@
+# String  클래스
+
 <blockquote data-ke-style="style2"><br /><span style="font-family: Noto Sans Demilight, Noto Sans KR;"><b>서론 </b></span></blockquote>
 <p style="text-align: left;" data-ke-size="size16"><span style="font-family: Noto Sans Demilight, Noto Sans KR;"> 처음 배우는 프로그래밍 언어는 모두 제각각이겠지만, C를 먼저 배운 사람들은 문자열을 다룰 때 어려움을 겪었을 것이다. char 타입의 배열을 다루거나 char 포인터를 사용해야 하기 때문이다. 필자 또한 이런 어려움을 겪었지만, 자바를 배우면서 달라졌다. 자바에는 String 클래스가 존재한다. 우리는 String 클래스를 이용하여 손쉽게 문자열을 다룰 수 있다. 그럼 자금부터 String 클래스에 대해 알아보자.</span><br /><br /></p>
 <blockquote data-ke-style="style2"><br /><span style="font-family: Noto Sans Demilight, Noto Sans KR;"><b>String 클래스에 대하여</b></span></blockquote>

@@ -5,7 +5,7 @@
 <details><summary>Index</summary>
   &nbsp;&nbsp;  1. About This Mentoring
 
-  2. Mentoring Member
+  2. Contents
 
   3. Mentoring Member
 </details>
@@ -15,8 +15,15 @@
  자바 멘토링
  
 * * *
+### 2. Contents
+|Index|Topic|
+|------|---|
+|1|[String Class](https://github.com/khsexk/Java_Mentoring/tree/main/Theory/String%20%ED%81%B4%EB%9E%98%EC%8A%A4)|
+|2|[Lambda Expression](https://github.com/khsexk/Java_Mentoring/tree/main/Theory/%EB%9E%8C%EB%8B%A4%EC%8B%9D%20%ED%91%9C%ED%98%84)|
 
-### 2. Mentoring Member
+* * *
+
+### 3. Mentoring Member
 - **Mentor: [고현석](https://github.com/khsexk)**
 - Menti: [이다현](https://github.com/dahyeon-da)
 - Menti: [한수빈](https://github.com/realhsb)

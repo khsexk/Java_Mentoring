@@ -1,4 +1,4 @@
-# Lambda Expression
+# PriorityQueue
 
 <blockquote data-ke-style="style2"><br /><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>서론</b></span></blockquote>
 <p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;프로그래머스 문제를 풀다가 시간초과로 막혔다. 그 이유는 Priority Queue였다. 사실 필자는 우선순위 큐가 뭔지는 알지만 자바에 클래스로 구현돼 있는지는 몰랐었다. 따라서 오늘은 우선순위 큐에 대해 다루어 볼 것이다.</span></p>

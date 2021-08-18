@@ -1,62 +1,73 @@
 # Lambda Expression
 
-<blockquote data-ke-style="style2"><span><b><br />서론</b></span></blockquote>
-<p data-ke-size="size16">&nbsp;자바에 큰 변화를 준 것이 두 개가 있는데, 그 중 하나는 JDK 1.8부터 추가된 람다식이다. 람다식으로 인해 자바는 객체지향언어인 동시에 함수형 언어가 되었다. 덕분에 우리는 함수형 언어의 장점들을 자바에서도 누릴 수 있게 되었는데, 그럼 지금부터 람다식에 대해 알아보자.<br /><br /></p>
-<blockquote data-ke-style="style2"><br /><span><b>1. 람다식이란?</b></span></blockquote>
-<p data-ke-size="size16"><b>def.</b> 메서드를 하나의 식으로 표현한 것으로, 익명함수라고도 부른다.</p>
+<blockquote data-ke-style="style2"><br /><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>서론</b></span></blockquote>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;프로그래머스 문제를 풀다가 시간초과로 막혔다. 그 이유는 Priority Queue였다. 사실 필자는 우선순위 큐가 뭔지는 알지만 자바에 클래스로 구현돼 있는지는 몰랐었다. 따라서 오늘은 우선순위 큐에 대해 다루어 볼 것이다.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;바로 예제를 보면서 이해해보자.</p>
-<pre id="code_1629039557147" class="java" data-ke-language="java" data-ke-type="codeblock"><code>int[] arr = new int[5];
-Arrays.setAll(arr, (i) -&gt; (int)(Math.random()*5+1);
-&nbsp;
-int method(){
-&nbsp;	return (int)(Math.random()*5) + 1;
-}</code></pre>
-<p data-ke-size="size16">&nbsp;위의 코드에서 ' ( ) -&gt; (int)(Math.random()*5+1 '이 람다식이다. 이 람식은 method( )를 간결하게 표현한 것이다. 코드를 봤을 때 당연히 람다식이 더 이해하기 쉬울 것이다. 또 메서드로 표현하려면 클래스를 만들어야 하고, 호출하려면 객체까지 생성해야 한다. 하지만 람다식을 사용한다면 이 과정들을 거치지 않아도 된다. 또 람다식은 메서드의 매개변수로도 전달 가능하고, 메서드의 결과로 반환될 수도 있다.</p>
+<blockquote data-ke-style="style2"><br /><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>우선순위 큐(Priority Queue)란?</b></span></blockquote>
+<p data-ke-size="size16"><span style="color: #202124; font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;먼저 들어오는 데이터가 먼저 나가는 FIFO(First-In-First-Out) 형식의 자료구조인 <b>큐(Queue)와 다르게</b> 우선순위 큐(Priority Queue)는 <b>우선순위</b><span style="color: #202124;"><b>가 높은 데이터가 먼저 나가는 형태의 자료구조</b>이다.&nbsp; 일상생활에서는 병원의 응급실을 대표적인 예로 들 수 있겠다.</span></span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<blockquote data-ke-style="style2"><span><b><br />2. 람다식 표현</b></span></blockquote>
-<blockquote data-ke-style="style3"><s>반환타입&nbsp; 메서드이름</s> (매개변수 선언) -&gt; {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// 내용<br />}</blockquote>
+<p data-ke-size="size16"><span style="color: #202124; font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><span style="color: #202124;">&nbsp;우선순위 큐는 힙(heap)을 이용하여 구현하는 것이 일반적이다. 따라서 데이터를 삽입할 때, 우선순위를 기준으로 최대 힙(max heap) 혹은 최소 힙(min heap)을 구성한다. 또 데이터를 꺼낼 때는 루트 노드를 얻어내고, 루트 노드를 삭제할 때는 빈 루트 노드 위치에 맨 마지막 노드를 삽입한 후 아래로 내려가면서 적절한 자리를 찾아서 옮기는 방식으로 진행된다.</span></span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16"><b>&nbsp;</b>메서드에서 이름과 반환타입을 제거하고, 매개변수 선언부와 몸통{ } 사이에 -&gt;를 추가해주면 된다. 반환값이 있는 메서드의 경우, return문 대신 식으로 대신 할 수 있는데, 이럴 경우 문장이 아닌 식이므로 세미콜론을 붙이지 않아도 된다. 예시를 보면서 이해해보자.</p>
-<blockquote data-ke-style="style3">int max(int a, int b){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />&nbsp; &nbsp; &nbsp; return a &gt; b ? a : b;&nbsp; &nbsp; <b>&rarr;</b>&nbsp; &nbsp; (int a, int b) -&gt; { return a &gt; b ? a : b; }&nbsp; &nbsp;&nbsp;<b>&rarr;</b>&nbsp; &nbsp; (int a, int b) -&gt; a &gt; b ? a : b<br />}</blockquote>
+<p data-ke-size="size16"><span style="color: #202124; font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><span style="color: #202124;"><b>*힙(heap)</b>: <span style="color: #4d5156;">완전 이진 트리의 일종으로 우선순위 큐를 위하여 만들어진 자료구조</span></span></span></p>
+<p data-ke-size="size16"><span style="color: #202124; font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><span style="color: #202124;">&rarr; 나중에 자세히 다뤄보자!</span></span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;람다식에 선언된 매개변수의 타입은 추론이 가능한 경우 생략 가능한데, 대부분의 경우 생략 가능하다. 람다식에 반환타입이 없는 이유 또한 항상 추론이 가능하기 때문이다. 위의 예제에서도 a와 b의 타입을 지워도 상관없다. 이 때 둘 중 하나만 지우는 것은 허용되지 않으므로 주의해야 한다.</p>
-<pre id="code_1629041083696" class="java" data-ke-language="java" data-ke-type="codeblock"><code>(a, b) -&gt; a &gt; b ? a : b</code></pre>
+<blockquote data-ke-style="style2"><br /><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>우선순위 큐의 특징</b></span></blockquote>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b><span style="color: #666666;">⦁</span><span style="color: #666666;">&nbsp;</span></b><span style="color: #666666;">높은 우선순위의 요소를 먼저 꺼내 처리하는 구조이다.&nbsp;</span></span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b><span style="color: #666666;">⦁</span></b><span style="color: #666666;"> 내부 요소는 힙으로 구성돼 이진트리 구조로 이루어져 있다.</span></span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b><span style="color: #666666;">⦁</span></b><span style="color: #666666;"> 시간 복잡도는 O(nlogn)이다.</span></span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b><span style="color: #666666;">⦁</span><span style="color: #666666;">&nbsp;</span></b><span style="color: #666666;">우선순위를 중요시해야 하는 상황에서 주로 쓰인다.</span></span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;만약 매개변수가 하나뿐인 경우에는 괄호도 생락 가능하다. 단, 매개변수의 타입이 있다면 생략 불가능하다.</p>
-<pre id="code_1629043205314" class="java" data-ke-language="java" data-ke-type="codeblock"><code>a -&gt; a * a  // Ok
-int a -&gt; a * a  // Error</code></pre>
+<blockquote data-ke-style="style2"><br /><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Java에서 PriorityQueue 클래스 사용하기</b></span></blockquote>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;자바에는 우선순위 큐가 이미 라이브러리에 구현돼 있다. (따라서 직접 구현하는 것은 나중에 해보겠다.) 그럼 이제부터 자바에서 <span style="color: #666666;">PriorityQueue 클래스를 사용해보자.</span></span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;마찬가지로, 중괄호 안에 문장이 하나라면 이 또한 생략 가능하다.</p>
-<blockquote data-ke-style="style3">(String name, int i) -&gt; {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />&nbsp; &nbsp; &nbsp; System.out.println(name+"="+i);&nbsp; &nbsp;<span>&nbsp; &nbsp;</span><b>&rarr;</b>&nbsp; &nbsp; &nbsp; (String name, int i) -&gt; System.out.println(name+"="+i)&nbsp; &nbsp;<br />}</blockquote>
+<blockquote data-ke-style="style2"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Step1. Import</b></span></blockquote>
+<pre id="code_1627319114779" class="java" data-ke-language="java" data-ke-type="codeblock"><code>import java.util.PriorityQueue;
+import java.util.Collections;</code></pre>
+<p data-ke-size="size16"><span style="color: #666666; font-family: 'Noto Sans Demilight', 'Noto Sans KR';">PriorityQueue 객체를 생성하기 전에 먼저 import 과정을 거쳐야 한다. 추가로 최대 힙까지 알아보기 위해 Collections까지 import 해주자.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<blockquote data-ke-style="style2"><br /><b>3. 함수형 인터페이스(Functional Interface)</b></blockquote>
-<p data-ke-size="size16">&nbsp;자바에서는 모든 메서드가 클래스에 포함돼야 한다. 람다식 또한 마찬가지이고, 익명 클래스의 객체와 동등하다. 아래 코드를 보면서 이해해보자.</p>
-<blockquote data-ke-style="style3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; new Object( ) {<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; int max(int a, int b){<br />(int a, int b) -&gt; a &gt; b ? a : b&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; <b>&harr;</b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return&nbsp; a &gt; b ? a : b;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; }<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;}&nbsp; &nbsp;</blockquote>
+<blockquote data-ke-style="style2"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Step2. Priority Queue 선언</b></span></blockquote>
+<pre id="code_1627319298854" class="java" data-ke-language="java" data-ke-type="codeblock"><code>PriorityQueue&lt;Integer&gt; priorityQueue_Min = new PriorityQueue&lt;&gt;();
+PriorityQueue&lt;Integer&gt; priorityQueue_Max = new PriorityQueue&lt;&gt;(Collections.reverseOrder());</code></pre>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;다른 객체를 생성하는 것과 똑같이 생성해주면 된다. 만약 최대 힙으로 구성된 PriorityQueue 객체를 생성하고 싶다면 Collections.reverseOrder( )을 이용해주면 된다.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;그렇다면 람다식으로 정의된 익명 객체의 메서드를 어떻게 호출할 수 있는 것일까? 인터페이스가 그 정답을 가지고 있다. 아래의 코드를 보자. MyFunction이라는 인터페이스를 f라는 클래스에서 구현했다. 메서드 max( )를 보면 람다식 ' <span style="background-color: #fcfcfc; color: #666666;">(int a, int b) -&gt; a &gt; b ? a : b '와 선언부가 일치한다. 따라서 우리는 익명 객체를 람다식으로 대체할 수 있는 것이다.</span></p>
-<pre id="code_1629065428241" class="java" data-ke-language="java" data-ke-type="codeblock"><code>interface MyFunction {
-&nbsp;	public abstract int max(int a, int b);
-}
-&nbsp;
-MyFunction f = new MyFunction(){
-&nbsp;	            public int max(int a, int b){
-&nbsp;                    	return a &gt; b ? a : b;
-&nbsp;                    }
-&nbsp;               };
+<blockquote data-ke-style="style2"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Step3. 삽입</b></span></blockquote>
+<pre id="code_1627319564614" class="java" data-ke-language="java" data-ke-type="codeblock"><code>priorityQueue_Min.add(1);
+priorityQueue_Min.add(2);
+priorityQueue_Min.offer(3);
 
-MyFunction l = (int a, int b) -&gt; a &gt; b ? a : b;</code></pre>
+priorityQueue_Max.add(1);
+priorityQueue_Max.add(2);
+priorityQueue_Max.offer(3);</code></pre>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;삽입을 할 때는 add( )나 offer( )를 사용한다.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
-<p data-ke-size="size16">&nbsp;실제로 람다식 또한 익명 객체이고, MyFunction 인터페이스를 구현한 익명 객체의 메서드 max( )와 매개변수의 타입, 개수, 그리고 리턴값이 일치하기 때문에 가능한 것이다. 이렇듯 인터페이스는 자바의 규칙들을 어기지 않았다. 따라서 인터페이스를 통해 람다식을 다루기로 하였고, 이 인터페이스를 "함수형 인터페이스"라고 부른다. 단, 함수형 인터페이스에는 오직 하나의 추상 메서드만 정의돼야 한다. 이를 통해 우리는 아래의 코드처럼 간단하게 코드를 짤 수 있게 되었다.</p>
-<pre id="code_1629066115312" class="java" data-ke-language="java" data-ke-type="codeblock"><code>List&lt;String&gt; list = Arrays.asList("abc", "aaa", "bbb", "ddd", "aaa");
-&nbsp;
-// 기존 방식
-Collections.sort(list, new Comparator&lt;String&gt;() {
-&nbsp;	public int compare(String s1, String s2) {
-&nbsp;    		return s2.compareTo(s1);
-&nbsp;    }
-});
-&nbsp;
-// 람다식
-Collections.sort(list, (s1, s2) -&gt; s2.compareTo(s1));</code></pre>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;둘의 차이점이 무엇인지 의문을 가질 수도 있는데, add( )는 Collection에서 나오고, offer( )는 Queue에서 나온다. 용량 제한이 있을 시 add( )는 항상 true를 반환하므로, 요소를 추가할 수 없는 경우 예외를 throw한다. 반면, offer( )는 요소를 추가할 수 없는 경우 false를 반환한다. 하지만 PriorityQueue는 힙에 근거하는 무제한의 우선순위 큐이므로 크게 신경쓰지 않아도 된다.</span></p>
 <p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;그럼 삽입되는 과정을 참고 그림을 통해 이해 해보자.</span></p>
+<p><img src="https://user-images.githubusercontent.com/56003992/129849467-a651893f-d020-4df2-bee8-1443bbd2337e.png" width="60%" height="60%"></p>
+<p data-ke-size="size16">&nbsp;</p>
+<blockquote data-ke-style="style2"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Step4. 삭제</b></span></blockquote>
+<pre id="code_1627321147925" class="java" data-ke-language="java" data-ke-type="codeblock"><code>// 첫번째 값을 반환하고 제거, 비어있다면 null
+priorityQueue_Min.poll();
+
+// 첫번째 값 제거, 비어있다면 예외 발생
+priorityQueue_Min.remove(); 
+
+// 초기화
+priorityQueue_Min.clear();</code></pre>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp; 삭제할 때는 poll( ), remove( )을 사용한다. 반환을 하고 삭제할 것인지, 아닌지에 대해 판단하여 사용하면 된다. 추가로 초기화 시에는 clear( )을 사용한다.</span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<blockquote data-ke-style="style2"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';"><b>Step5. 우선순위(priority)가 가장 높은 값 출력</b></span></blockquote>
+<pre id="code_1627321340389" class="java" data-ke-language="java" data-ke-type="codeblock"><code>PriorityQueue&lt;Integer&gt; priorityQueue_Min = new PriorityQueue&lt;&gt;();// 최소 힙
+priorityQueue_Min.offer(2);     // priorityQueue에 값 2 추가
+priorityQueue_Min.offer(1);     // priorityQueue에 값 1 추가
+priorityQueue_Min.offer(3);     // priorityQueue에 값 3 추가
+priorityQueue_Min.peek();       // priorityQueue에 첫번째 값 참조 = 1
+priorityQueue_Min.element();	// // priorityQueue에 첫번째 값 참조 = 1
+&nbsp;
+PriorityQueue&lt;Integer&gt; priorityQueue_Max = new PriorityQueue&lt;&gt;(Collections.reverseOrder());// 최대 힙
+priorityQueue_Max.offer(2);     // priorityQueue에 값 2 추가
+priorityQueue_Max.offer(1);     // priorityQueue에 값 1 추가
+priorityQueue_Max.offer(3);     // priorityQueue에 값 3 추가
+priorityQueue_Max.peek();       // priorityQueue에 첫번째 값 참조 = 3
+priorityQueue_Max.element();	// // priorityQueue에 첫번째 값 참조 = 3</code></pre>
+<p data-ke-size="size16"><span style="font-family: 'Noto Sans Demilight', 'Noto Sans KR';">&nbsp;앞에서 본 코드이기 때문에 peek( )와 element( )를 제외하고는 생소하지 않을 것이다. peek( )는 첫 번째 값을 반환하고 제거하지는 않는데, 만약 큐가 비어있다면 null을 반환한다. element( )도 peek( )와 같지만, 큐가 비어있다면 예외를 발생시킨다. 이 두 메서드를 이용하여 우선순위가 가장 높은 값을 출력하면 된다.</span></p>

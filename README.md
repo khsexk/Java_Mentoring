@@ -34,6 +34,7 @@
 - **Mentor: [고현석](https://github.com/khsexk)**
 - Menti: [이다현](https://github.com/dahyeon-da)
 - Menti: [한수빈](https://github.com/realhsb)
+- Menti: [최유빈](https://github.com/cybin050300)
 
 * * *
 

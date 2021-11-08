@@ -35,7 +35,7 @@
 - Menti: [이다현](https://github.com/dahyeon-da)
 - Menti: [한수빈](https://github.com/realhsb)
 - Menti: [최유빈](https://github.com/cybin050300)
-- Menti: 
+- Menti: 아무거나
 * * *
 
 
